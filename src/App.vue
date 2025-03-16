@@ -24,10 +24,27 @@
   }
   
   body {
+    position: relative;
+    background-image: url('../src//assets//images/1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     font-family: 'Roboto', 'Arial', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
+    
   }
+
+  body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: -1; 
+}
   
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;

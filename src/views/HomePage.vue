@@ -61,7 +61,6 @@ const searchQuery = ref('');
   margin: 15px  0;
 }
 .hero-section {
-  background-color: #26a69a;
   background-size: cover;
   background-position: center;
   color: rgb(255, 255, 255);
