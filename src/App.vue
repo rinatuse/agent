@@ -1,9 +1,15 @@
 <template>
-    <router-view />
+    <div :class="{'home-page-background': isHomePage}">
+      <router-view />
+    </div>
   </template>
   
   <script setup lang="ts">
+  import {computed} from 'vue'
+  import {useRoute} from 'vue-router'
 
+  const route = useRoute()
+  const isHomePage = computed(() => route.name === 'home')
   </script>
   
   <style>
@@ -24,26 +30,40 @@
   }
   
   body {
-    position: relative;
-    background-image: url('../src//assets//images/1.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
     font-family: 'Roboto', 'Arial', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     
   }
 
-  body::before {
+.home-page-background {
+  position: relative;
+  min-height: 100vh;
+}
+
+.home-page-background::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: -1; 
+  background-image: url('../src/assets/images/1.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.home-page-background::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
 }
   
   h1, h2, h3, h4, h5, h6 {
